@@ -1,0 +1,971 @@
+
+/* =========================================
+   GLOBAL SETTINGS
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #a51f64;
+    overflow-x: hidden;
+
+    background: linear-gradient(
+        135deg,
+        #ffadd3,
+        #fbd5ed,
+        #ffc1dc,
+        #f8c8ee
+    );
+
+    background-size: 300% 300%;
+
+    animation: backgroundMove 12s ease infinite;
+}
+
+
+/* =========================================
+   PAGE STRUCTURE
+========================================= */
+
+.page {
+    display: none;
+
+    min-height: 100vh;
+    width: 100%;
+
+    padding: 35px 15px;
+
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    z-index: 2;
+}
+
+.page.active {
+    display: flex;
+    animation: pageEnter 0.8s ease;
+}
+
+
+/* =========================================
+   GLASS CARDS
+========================================= */
+
+.card {
+    width: 100%;
+    max-width: 510px;
+
+    padding: 35px 27px;
+
+    text-align: center;
+
+    border: 2px solid rgba(255,255,255,0.9);
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.78);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 25px 60px rgba(190,50,120,0.22),
+        inset 0 2px 10px white;
+}
+
+.welcome-card {
+    max-width: 500px;
+}
+
+
+/* =========================================
+   HEADINGS AND TEXT
+========================================= */
+
+h1 {
+    font-size: clamp(25px, 5vw, 34px);
+
+    margin: 15px 0;
+
+    color: #ad286d;
+}
+
+h2 {
+    color: #b12c72;
+}
+
+.description {
+    line-height: 1.8;
+
+    margin: 18px 0;
+
+    font-size: 16px;
+}
+
+.small-title {
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    color: #e34a98;
+
+    margin-top: 15px;
+}
+
+.signature {
+    margin-top: 22px;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    color: #c13b7c;
+}
+
+
+/* =========================================
+   TEDDY BEAR DECORATION
+========================================= */
+
+.hero-bear {
+    font-size: 75px;
+
+    margin: 15px 0;
+
+    display: inline-block;
+
+    filter: drop-shadow(
+        0 15px 10px rgba(140,40,90,0.25)
+    );
+
+    animation: bearFloat 3s ease-in-out infinite;
+}
+
+
+/* =========================================
+   INPUT
+========================================= */
+
+input {
+    width: 100%;
+
+    padding: 17px;
+
+    margin: 20px 0;
+
+    border: 2px solid #ff81b8;
+
+    border-radius: 16px;
+
+    outline: none;
+
+    text-align: center;
+
+    font-size: 16px;
+
+    background: white;
+
+    color: #a51f64;
+}
+
+input:focus {
+    box-shadow: 0 0 15px #ff83c0;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+button {
+    display: block;
+
+    width: 100%;
+
+    padding: 16px;
+
+    margin: 13px 0;
+
+    border: none;
+
+    border-radius: 17px;
+
+    color: white;
+
+    background: linear-gradient(
+        100deg,
+        #ff55a5,
+        #e92f91
+    );
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 9px 20px rgba(220,40,130,0.25);
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+button:hover {
+    transform: translateY(-5px) scale(1.02);
+
+    box-shadow:
+        0 13px 25px rgba(220,40,130,0.35);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+.back-btn {
+    background: linear-gradient(
+        100deg,
+        #d88be8,
+        #bc68d7
+    );
+}
+
+
+/* =========================================
+   PAGE 2: LETTER
+========================================= */
+
+.envelope {
+    background: linear-gradient(
+        145deg,
+        #fff0f7,
+        #ffe0ef
+    );
+
+    border: 2px dashed #f58cba;
+
+    padding: 25px;
+
+    margin: 25px 0;
+
+    border-radius: 22px;
+
+    line-height: 1.9;
+
+    box-shadow:
+        0 12px 25px rgba(200,60,130,0.12);
+
+    animation: letterFloat 4s ease-in-out infinite;
+}
+
+.envelope p {
+    margin: 15px 0;
+
+    font-size: 17px;
+
+    font-weight: 600;
+}
+
+.envelope-heart {
+    font-size: 45px;
+
+    margin-bottom: 15px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+
+/* =========================================
+   PAGE 3: MESSAGE BOX
+========================================= */
+
+.message-box {
+    min-height: 125px;
+
+    padding: 25px;
+
+    margin: 25px 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #ffe2f0,
+        #ffd2e9
+    );
+
+    border-radius: 22px;
+
+    box-shadow:
+        inset 0 3px 12px rgba(255,255,255,0.8);
+}
+
+.message-box h2 {
+    font-size: 22px;
+
+    line-height: 1.6;
+
+    animation: messagePop 0.7s ease;
+}
+
+
+/* =========================================
+   PAGE 4: GIFT SIZE AND ALIGNMENT
+========================================= */
+
+.gift-card {
+    max-width: 440px;
+
+    padding: 25px 24px;
+}
+
+.gift-card h1 {
+    font-size: 27px;
+
+    margin: 12px 0;
+}
+
+.gift {
+    font-size: 75px;
+
+    margin: 12px 0;
+
+    line-height: 1.3;
+
+    cursor: pointer;
+
+    display: inline-block;
+
+    filter: drop-shadow(
+        0 12px 12px rgba(150,40,100,0.25)
+    );
+
+    animation: giftBounce 2s infinite;
+
+    transition: transform 0.5s;
+}
+
+.gift.opened {
+    transform: scale(1.2) rotate(10deg);
+
+    animation: none;
+}
+
+.gift-card .description {
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin: 12px 0;
+}
+
+.gift-card button {
+    padding: 13px;
+
+    margin: 10px 0;
+}
+
+
+/* =========================================
+   FLOATING HEARTS AND FLOWERS
+========================================= */
+
+#floatingHearts {
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+.floating-item {
+    position: absolute;
+
+    bottom: -50px;
+
+    animation: floatUp linear forwards;
+
+    opacity: 0.8;
+
+    filter: drop-shadow(
+        0 4px 5px rgba(160,40,100,0.15)
+    );
+}
+
+
+/* =========================================
+   PAGE 5: CINEMATIC DUA BACKGROUND
+========================================= */
+
+.dua-page {
+    height: 100vh;
+
+    height: 100svh;
+
+    min-height: 0 !important;
+
+    width: 100%;
+
+    padding: 12px !important;
+
+    overflow: hidden !important;
+
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            #a34d91,
+            transparent 45%
+        ),
+        linear-gradient(
+            180deg,
+            #24102f,
+            #52204f,
+            #25112f
+        );
+}
+
+.dua-page.active {
+    display: flex;
+}
+
+.dua-container {
+    width: 100%;
+
+    max-width: 620px;
+
+    height: min(94svh, 850px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 12px 20px;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    background: rgba(255,255,255,0.07);
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    box-shadow:
+        0 15px 60px rgba(0,0,0,0.25),
+        inset 0 0 20px rgba(255,255,255,0.05);
+
+    backdrop-filter: blur(12px);
+}
+
+
+/* =========================================
+   PAGE 5: FIXED HEADER
+========================================= */
+
+.dua-heading {
+    flex-shrink: 0;
+
+    text-align: center;
+
+    width: 100%;
+}
+
+.dua-stars {
+    font-size: 25px;
+
+    margin: 5px;
+
+    animation: duaStarGlow 3s infinite;
+}
+
+.dua-page .small-title {
+    color: #ffc1e5;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    margin: 5px;
+}
+
+.dua-page h1 {
+    color: #ffd5ed;
+
+    font-size: 27px;
+
+    margin: 7px 0;
+}
+
+.dua-bear {
+    font-size: 45px;
+
+    margin: 5px;
+
+    animation: bearFloat 3s ease-in-out infinite;
+}
+
+
+/* =========================================
+   PAGE 5: FIXED MOVING VIEWPORT
+========================================= */
+
+.dua-window {
+    width: 100%;
+
+    flex: 1;
+
+    min-height: 0;
+
+    position: relative;
+
+    overflow: hidden;
+
+    perspective: 1000px;
+
+    mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        black 12%,
+        black 88%,
+        transparent
+    );
+
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        black 12%,
+        black 88%,
+        transparent
+    );
+}
+
+
+/* =========================================
+   MOVIE CREDIT ROLL
+========================================= */
+
+.dua-roll {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    will-change: transform;
+}
+
+.dua-credit-group {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    flex-shrink: 0;
+}
+
+.dua-credit-spacer {
+    width: 100%;
+
+    height: 45vh;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   INDIVIDUAL DUA TEXT
+========================================= */
+
+.dua-line {
+    width: 100%;
+
+    flex-shrink: 0;
+
+    min-height: 105px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 18px 12px;
+
+    text-align: center;
+
+    color: #fff0fa;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    line-height: 1.8;
+
+    letter-spacing: 0.3px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255,190,225,0.13),
+        rgba(255,255,255,0.04)
+    );
+
+    border-bottom: 1px solid rgba(255,255,255,0.13);
+
+    text-shadow:
+        0 0 8px rgba(255,150,220,0.55),
+        0 3px 10px rgba(0,0,0,0.3);
+
+    transform:
+        perspective(700px)
+        rotateX(8deg);
+}
+
+
+/* =========================================
+   CONTINUOUS UPWARD MOVEMENT
+========================================= */
+
+@keyframes movieCredits {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-50%);
+    }
+
+}
+
+
+/* =========================================
+   FINAL MESSAGE AREA
+========================================= */
+
+.dua-ending {
+    flex-shrink: 0;
+
+    width: 100%;
+
+    text-align: center;
+
+    padding: 12px 5px;
+}
+
+.dua-ending h2 {
+    color: #ffe0f1;
+
+    font-size: 19px;
+
+    margin-bottom: 8px;
+}
+
+.dua-ending h1 {
+    font-size: 26px;
+
+    color: #ffacd7;
+
+    animation: duaStarGlow 3s infinite;
+}
+
+.dua-ending p {
+    color: #ffe8f6;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+.dua-ending .signature {
+    color: #ffc0e1;
+}
+
+.dua-page .back-btn {
+    flex-shrink: 0;
+
+    max-width: 100%;
+
+    padding: 11px;
+
+    margin: 5px 0;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes backgroundMove {
+
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes pageEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(35px)
+            scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes bearFloat {
+
+    0%, 100% {
+        transform:
+            translateY(0)
+            rotate(-4deg);
+    }
+
+    50% {
+        transform:
+            translateY(-15px)
+            rotate(4deg);
+    }
+}
+
+@keyframes letterFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes messagePop {
+
+    from {
+        opacity: 0;
+
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+}
+
+@keyframes giftBounce {
+
+    0%, 100% {
+        transform:
+            translateY(0)
+            rotate(-5deg);
+    }
+
+    50% {
+        transform:
+            translateY(-15px)
+            rotate(5deg);
+    }
+}
+
+@keyframes floatUp {
+
+    to {
+        transform:
+            translateY(-115vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+@keyframes duaStarGlow {
+
+    0%, 100% {
+        text-shadow: 0 0 5px #ff8cc9;
+    }
+
+    50% {
+        text-shadow:
+            0 0 15px #ff8cc9,
+            0 0 30px #ff4da8;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE MOBILE DESIGN
+========================================= */
+
+@media (max-width: 480px) {
+
+    .card {
+        padding: 27px 18px;
+
+        border-radius: 25px;
+    }
+
+    .hero-bear {
+        font-size: 65px;
+    }
+
+    .gift-card {
+        padding: 20px 17px;
+    }
+
+    .gift {
+        font-size: 65px;
+    }
+
+    .message-box h2 {
+        font-size: 19px;
+    }
+
+    .dua-container {
+        padding: 8px 12px;
+
+        height: 96svh;
+    }
+
+    .dua-page h1 {
+        font-size: 22px;
+    }
+
+    .dua-bear {
+        font-size: 35px;
+    }
+
+    .dua-line {
+        font-size: 14px;
+
+        min-height: 90px;
+
+        padding: 12px 8px;
+    }
+
+    .dua-ending h1 {
+        font-size: 22px;
+    }
+
+    .dua-ending h2 {
+        font-size: 16px;
+    }
+}
+
+
+/* =========================================
+   SMALL SCREEN HEIGHT ADJUSTMENT
+========================================= */
+
+@media (max-height: 650px) {
+
+    .dua-container {
+        height: 98svh;
+
+        padding: 5px 12px;
+    }
+
+    .dua-stars {
+        font-size: 18px;
+    }
+
+    .dua-bear {
+        font-size: 28px;
+
+        margin: 2px;
+    }
+
+    .dua-page h1 {
+        font-size: 20px;
+
+        margin: 3px;
+    }
+
+    .dua-line {
+        min-height: 80px;
+    }
+
+    .dua-ending {
+        padding: 5px;
+    }
+
+    .dua-ending h1 {
+        font-size: 19px;
+    }
+
+    .dua-page .back-btn {
+        padding: 8px;
+
+        margin: 3px;
+    }
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *, *::before, *::after {
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+
+        scroll-behavior: auto !important;
+    }
+}

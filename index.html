@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Forever Favourite Sister 💗</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- FLOATING BACKGROUND DECORATIONS -->
+    <div id="floatingHearts"></div>
+
+
+    <!-- PAGE 1: WELCOME -->
+    <section id="page1" class="page active">
+
+        <div class="card welcome-card">
+
+            <div class="hero-bear">💝 🧸 💝</div>
+
+            <p class="small-title">A SPECIAL SURPRISE FOR YOU</p>
+
+            <h1>A Little Surprise For You!</h1>
+
+            <p class="description">
+                Someone very special deserves something beautiful.
+                Are you ready for a little surprise? 🥰
+            </p>
+
+            <input
+                type="text"
+                id="sisterName"
+                placeholder="Enter your lovely name..."
+                maxlength="30"
+                autocomplete="off"
+            >
+
+            <button onclick="startJourney()">
+                Continue ❤️
+            </button>
+
+            <p class="signature">
+                Made with love by your brother 💗
+            </p>
+            <button class="music-button" onclick="toggleMusic()">
+    🎵 Turn Music On
+</button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PAGE 2: SPECIAL LETTER -->
+    <section id="page2" class="page">
+
+        <div class="card">
+
+            <div class="hero-bear">🧸💌</div>
+
+            <p class="small-title">A LETTER FROM MY HEART</p>
+
+            <h1 id="helloName">Hello Beautiful!</h1>
+
+            <div class="envelope">
+
+                <div class="envelope-heart">💗</div>
+
+                <h2>Dear My Lovely Sister,</h2>
+
+                <p>
+                    You are my built-in best friend,
+                    my God-gifted blessing,
+                    and my forever favourite person.
+                </p>
+
+                <p>
+                    Life is more beautiful because
+                    I have a sister like you! 🥹
+                </p>
+
+                <h2>Love You Forever! ❤️</h2>
+
+            </div>
+
+            <button onclick="nextPage(3)">
+                Open My Heart 💕
+            </button>
+
+            <button class="back-btn" onclick="nextPage(1)">
+                ← Previous
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PAGE 3: WHY YOU ARE SPECIAL -->
+    <section id="page3" class="page">
+
+        <div class="card">
+
+            <div class="hero-bear">🐻💕</div>
+
+            <p class="small-title">
+                A MILLION REASONS TO SMILE
+            </p>
+
+            <h1>Why You Are Special!</h1>
+
+            <div class="message-box">
+
+                <h2 id="specialMessage">
+                    You are my built-in best friend! 💗
+                </h2>
+
+            </div>
+
+            <p class="description">
+                Every little message carries a big hug
+                from your brother! 🤗
+            </p>
+
+            <button onclick="changeSpecialMessage()">
+                Another Sweet Message 💗
+            </button>
+
+            <button onclick="nextPage(4)">
+                There's More! 🎁
+            </button>
+
+            <button class="back-btn" onclick="nextPage(2)">
+                ← Previous
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PAGE 4: GIFT SURPRISE -->
+    <section id="page4" class="page">
+
+        <div class="card gift-card">
+
+            <p class="small-title">
+                A LITTLE SOMETHING FOR YOU
+            </p>
+
+            <h1>Your Special Gift! 🎀</h1>
+
+            <div
+                id="gift"
+                class="gift"
+                onclick="openGift()"
+                role="button"
+                aria-label="Open your gift"
+            >
+                🎁
+            </div>
+
+            <p id="giftMessage" class="description">
+                Tap the gift box to discover your surprise!
+            </p>
+
+            <button onclick="openGift()">
+                Open My Gift 💝
+            </button>
+
+            <button onclick="nextPage(5)">
+                Continue to Forever ❤️
+            </button>
+
+            <button class="back-btn" onclick="nextPage(3)">
+                ← Previous
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PAGE 5: CINEMATIC DUA ENDING -->
+    <section id="page5" class="page dua-page">
+
+        <div class="dua-container">
+
+            <!-- FIXED HEADING -->
+            <div class="dua-heading">
+
+                <div class="dua-stars">
+                    ✨ 🌙 ✨
+                </div>
+
+                <p class="small-title">
+                    A PRAYER FROM MY HEART
+                </p>
+
+                <h1>My Duas For You ❤️</h1>
+
+                <div class="dua-bear">🧸💗</div>
+
+            </div>
+
+
+            <!-- FIXED VIEWPORT -->
+            <div class="dua-window">
+
+                <div id="duaMessages" class="dua-roll">
+
+                    <!-- JavaScript creates the rolling credits -->
+
+                </div>
+
+            </div>
+
+
+            <!-- FIXED FINAL MESSAGE -->
+            <div class="dua-ending">
+
+                <h2>Ameen Ya Rabb! 🤲</h2>
+
+                <h1>I Love You So Much! 💖</h1>
+
+                <p>
+                    Allah gave me the best sister,
+                    and I am forever grateful. ❤️
+                </p>
+
+                <p class="signature">
+                    Made with endless love, just for you 💌
+                </p>
+
+            </div>
+
+
+            <button class="back-btn" onclick="nextPage(4)">
+                ← Previous
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
